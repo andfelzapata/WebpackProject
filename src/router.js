@@ -12,7 +12,7 @@ const Routes = () => {
       <div>
         <Header />
         <Route path="/" component={Home} />
-      </div> c
+      </div>
     </Router>
   );
 };
