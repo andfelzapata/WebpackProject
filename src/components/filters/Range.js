@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Slider from 'react-input-range';
+//import Slider from 'react-input-range';
 
 class Range extends Component {
   onChange(component, values) {
@@ -14,12 +14,12 @@ class Range extends Component {
     return (
       <div className="range-slider">
         <label>{this.props.label}</label>
-        <Slider
+{/*        <Slider
           onChange={this.onChange.bind(this)}
           minValue={parseInt(this.props.range.min)}
           maxValue={parseInt(this.props.range.max)}
           value={value || this.props.range}
-        />
+        />*/}
       </div>
     );
   }
