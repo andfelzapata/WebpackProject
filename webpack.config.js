@@ -10,14 +10,19 @@ module.exports = {
   module: {
     rules: [
       {
-        try: /\.js$/,
+        test: /\.js$/,
         use: ['babel-loader'],
         exclude: /node_modules/
       },
       {
-        try: /.css$/,
+        test: /.css$/,
         use: ["style-loader", "css-loader"]
       }
     ]
+  },
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, 'src/components')
+    }
   }
 };
