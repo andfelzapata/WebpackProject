@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "eslint src/**  --ext .js, .jsx",
+    "lint:fix": "eslint src/**  --ext .js, .jsx --fix"
   },
-  "repository": "https://github.com/StephenGrider/WebpackProject",
+  "repository": "https://github.com/andfelzapata/WebpackProject",
   "author": "",
   "license": "ISC",
   "dependencies": {
     "eslint": "^4.16.0",
     "faker": "^4.1.0",
+    "history": "^4.7.2",
     "lodash": "^4.17.2",
     "prop-types": "^15.6.0",
     "react": "16.2.0",
