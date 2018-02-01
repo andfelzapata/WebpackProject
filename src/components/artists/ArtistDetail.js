@@ -61,7 +61,6 @@ class ArtistDetail extends Component {
   }
 
   render() {
-    console.log('ArtistDetail');
     if (!this.props.artist) { return <div>Todo: implement "FindArtist" query</div>; }
 
     const {

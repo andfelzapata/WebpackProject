@@ -13,7 +13,6 @@ class ArtistCreate extends Component {
   }
 
   render() {
-    console.log('ArtistCreate');
     const { handleSubmit } = this.props;
 
     return (
