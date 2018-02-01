@@ -1,11 +1,20 @@
 var webpack = require('webpack');
 var path = require('path');
 
+const VENDOR_LIBS = [
+  'faker', 'history', 'lodash', 'prop-types',
+  'react-router-dom', 'redux', 'redux-form', 'redux-thunk',
+  'react', 'react-dom', 'react-input-range', 'react-redux'
+];
+
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    bundle: './src/index.js',
+    vendor: VENDOR_LIBS
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -22,6 +31,9 @@ module.exports = {
   },
   resolve: {
     alias: {
+      style: path.resolve(__dirname, 'style/'),
+      database: path.resolve(__dirname, 'database/'),
+      actions: path.resolve(__dirname, 'src/actions'),
       components: path.resolve(__dirname, 'src/components')
     }
   }
