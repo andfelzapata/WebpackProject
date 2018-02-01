@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 
@@ -16,7 +17,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js'
   },
   module: {
     rules: [
@@ -41,7 +42,10 @@ module.exports = {
   },
   plugins: [
     new CommonsChunkPlugin({
-      name: 'vendor'
+      names: ['vendor', 'manifest']
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
     })
   ]
 };
