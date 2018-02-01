@@ -1,7 +1,7 @@
 import {
   CREATE_ERROR,
   CLEAR_ERROR,
-} from '../actions/types';
+} from 'actions/types';
 
 export default (state = '', action) => {
   switch (action.type) {

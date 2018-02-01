@@ -2,8 +2,8 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Range } from '../filters';
-import * as actions from '../../actions';
+import { Range } from 'components/filters';
+import * as actions from 'actions';
 
 const TEXT_FIELDS = [
   { label: 'Name', prop: 'name' },

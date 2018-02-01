@@ -3,7 +3,7 @@ import {
   SEARCH_ARTISTS,
   FIND_ARTIST,
   RESET_ARTIST,
-} from '../actions/types';
+} from 'actions/types';
 
 const INITIAL_STATE = {
   all: [],

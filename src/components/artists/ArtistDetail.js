@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as actions from '../../actions';
+import * as actions from 'actions';
 
 class ArtistDetail extends Component {
   componentWillMount() {
@@ -82,7 +82,7 @@ class ArtistDetail extends Component {
               <h3>{name}</h3>
               <h5>Master of {genre}</h5>
             </div>
-            <image src={image} className="right" />
+            <img src={image} className="right" />
           </li>
           <li className="collection-item">
             <h5>{yearsActive}</h5>
