@@ -1,6 +1,5 @@
 import _ from 'lodash';
-import { hashHistory } from 'react-router';
-import createHistory from "history/createBrowserHistory"
+import createHistory from "history/createHashHistory"
 import {
   SET_AGE_RANGE,
   SET_YEARS_ACTIVE_RANGE,
@@ -13,7 +12,6 @@ import {
   SELECT_ARTIST,
   RESET_SELECTION,
 } from './types';
-
 const history = createHistory()
 
 import GetAgeRange from '../../database/queries/GetAgeRange';
@@ -76,7 +74,7 @@ export const createArtist = props => dispatch =>
 
 export const editArtist = (id, props) => dispatch =>
   EditArtistProxy(id, props)
-    .then(() => hashHistory.push(`artists/${id}`))
+    .then(() => history.push(`artists/${id}`))
     .catch((error) => {
       console.log(error);
       dispatch({ type: CREATE_ERROR, payload: error });
@@ -84,7 +82,7 @@ export const editArtist = (id, props) => dispatch =>
 
 export const deleteArtist = id => dispatch =>
   DeleteArtistProxy(id)
-    .then(() => hashHistory.push('/'))
+    .then(() => history.push('/'))
     .catch((error) => {
       console.log(error);
       dispatch({ type: CREATE_ERROR, payload: error });
