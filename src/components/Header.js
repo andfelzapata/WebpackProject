@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 const db = require('../../database/queries/db');
 
 class Header extends Component {
@@ -35,7 +36,7 @@ class Header extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={'/artists/new'}>
+                  <Link to="/artists/new">
                     Create Artist
                   </Link>
                 </li>
@@ -46,6 +47,6 @@ class Header extends Component {
       </div>
     );
   }
-};
+}
 
 export default Header;

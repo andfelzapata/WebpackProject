@@ -6,7 +6,7 @@ import { Range } from '../filters';
 import * as actions from '../../actions';
 
 const TEXT_FIELDS = [
-  { label: 'Name', prop: 'name' }
+  { label: 'Name', prop: 'name' },
 ];
 
 class ArtistFilter extends Component {
@@ -17,7 +17,7 @@ class ArtistFilter extends Component {
     } else {
       this.props.searchArtists({
         name: '',
-        sort: 'name'
+        sort: 'name',
       });
     }
   }
@@ -34,7 +34,7 @@ class ArtistFilter extends Component {
 
   renderInputs() {
     return TEXT_FIELDS.map(({ label, prop }) =>
-      <div className="input-field" key={prop}>
+      (<div className="input-field" key={prop}>
         <Field
           placeholder={label}
           id={prop}
@@ -42,8 +42,7 @@ class ArtistFilter extends Component {
           component="input"
           type="text"
         />
-      </div>
-    );
+       </div>));
   }
 
   render() {
@@ -106,12 +105,12 @@ const mapStateToProps = (state) => {
   return {
     yearsActive: filterCriteria.yearsActive,
     ageRange: filterCriteria.age,
-    filters: state.form.filters && state.form.filters.values
+    filters: state.form.filters && state.form.filters.values,
   };
 };
 
 export default connect(mapStateToProps, actions)(reduxForm({
   destroyOnUnmount: false,
   form: 'filters',
-  initialValues: { sort: 'name' }
+  initialValues: { sort: 'name' },
 })(ArtistFilter));

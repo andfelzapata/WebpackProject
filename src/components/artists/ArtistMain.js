@@ -9,7 +9,7 @@ class ArtistMain extends Component {
         <div className="col s4">
           <ArtistFilter />
         </div>
-        <div className="col s8">
+        <div className="col s8 Artist--Index">
           <ArtistIndex />
         </div>
       </div>

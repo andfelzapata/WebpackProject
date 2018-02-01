@@ -40,9 +40,9 @@ class ArtistIndex extends Component {
             {artist.albums ? artist.albums.length : 0} albums released
           </p>
         </div>
-        <Link to={`artists/${artist._id}`} className="secondary-content">
-           <i className="material-icons">></i>
-         </Link>
+        <Link to={`/artists/${artist._id}`} className="secondary-content">
+          <i className="material-icons">></i>
+        </Link>
       </li>
     );
   }

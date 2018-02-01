@@ -5,12 +5,23 @@ import * as actions from '../../actions';
 
 class ArtistDetail extends Component {
   componentWillMount() {
-    this.props.findArtist(this.props.params.id);
+    const {
+      match: { params: { id } },
+    } = this.props;
+    this.props.findArtist(id);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.params.id !== this.props.params.id) {
-      this.props.findArtist(nextProps.params.id);
+    const {
+      match: { params: { id: nextId } },
+    } = nextProps;
+
+    const {
+      match: { params: { id } },
+    } = this.props;
+
+    if (nextId !== id) {
+      this.props.findArtist(nextId);
     }
   }
 
@@ -27,39 +38,42 @@ class ArtistDetail extends Component {
 
     if (!albums || !albums.map) { return; }
 
-    return albums.map(album => {
-      return (
-        <div className="card album" key={album.title}>
-          <div className="card-image">
-            <img src={album.image} />
-            <span className="card-title">
-              <h4>{album.title}</h4>
-            </span>
+    return albums.map(album => (
+      <div className="card album" key={album.title}>
+        <div className="card-image">
+          <img src={album.image} />
+          <span className="card-title">
+            <h4>{album.title}</h4>
+          </span>
+        </div>
+        <div className="card-content">
+          <div>
+            <h5>{album.copiesSold}</h5>
+            <i>copies sold</i>
           </div>
-          <div className="card-content">
-            <div>
-              <h5>{album.copiesSold}</h5>
-              <i>copies sold</i>
-            </div>
-            <div>
-              <h5>{album.numberTracks}</h5>
-              <i>tracks</i>
-            </div>
+          <div>
+            <h5>{album.numberTracks}</h5>
+            <i>tracks</i>
           </div>
         </div>
-      );
-    });
+      </div>
+    ));
   }
 
   render() {
+    console.log('ArtistDetail');
     if (!this.props.artist) { return <div>Todo: implement "FindArtist" query</div>; }
 
-    const { artist: { name, age, genre, image, yearsActive, netWorth, labelName, _id } } = this.props;
+    const {
+      artist: {
+        name, age, genre, image, yearsActive, netWorth, labelName, _id,
+      },
+    } = this.props;
 
     return (
       <div>
         <div className="spacer">
-          <Link to="/">Back</Link>
+          <Link to="/home">Back</Link>
           <Link to={`/artists/${_id}/edit`}>Edit</Link>
           <a onClick={this.onDeleteClick.bind(this)}>Delete</a>
         </div>
@@ -96,8 +110,6 @@ class ArtistDetail extends Component {
   }
 }
 
-const mapStateToProps = ({ artists }) => {
-  return { artist: artists.artist };
-};
+const mapStateToProps = ({ artists }) => ({ artist: artists.artist });
 
 export default connect(mapStateToProps, actions)(ArtistDetail);

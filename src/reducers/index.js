@@ -10,5 +10,5 @@ export default combineReducers({
   filterCriteria: filterCriteriaReducer,
   artists: ArtistsReducer,
   errors: ErrorReducer,
-  selection: SelectionReducer
+  selection: SelectionReducer,
 });

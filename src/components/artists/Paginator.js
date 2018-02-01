@@ -6,13 +6,15 @@ class Paginator extends Component {
   back() {
     const { offset, limit, form: { filters: { values } } } = this.props;
 
-    if (offset === 0 ) { return; }
+    if (offset === 0) { return; }
 
     this.props.searchArtists(values, offset - 10, limit);
   }
 
   advance() {
-    const { offset, limit, count, form: { filters: { values } } } = this.props;
+    const {
+      offset, limit, count, form: { filters: { values } },
+    } = this.props;
 
     if ((offset + limit) > count) { return; }
 
@@ -32,7 +34,7 @@ class Paginator extends Component {
   right() {
     const { offset, limit, count } = this.props;
 
-    const end = ((offset + limit) >= count) ? true : false;
+    const end = ((offset + limit) >= count);
 
     return (
       <li className={end ? 'disabled' : ''}>
@@ -60,7 +62,9 @@ class Paginator extends Component {
 const mapStateToProps = ({ artists, form }) => {
   const { limit, offset, count } = artists;
 
-  return { limit, offset, count, form};
+  return {
+    limit, offset, count, form,
+  };
 };
 
 export default connect(mapStateToProps, actions)(Paginator);

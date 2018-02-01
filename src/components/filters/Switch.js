@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Switch = () => {
-  return (
-    <div>
+const Switch = () => (
+  <div>
       Switch
-    </div>
-  );
-};
+  </div>
+);
 
 export { Switch };

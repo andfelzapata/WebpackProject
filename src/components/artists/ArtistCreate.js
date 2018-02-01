@@ -13,6 +13,7 @@ class ArtistCreate extends Component {
   }
 
   render() {
+    console.log('ArtistCreate');
     const { handleSubmit } = this.props;
 
     return (
@@ -38,12 +39,10 @@ class ArtistCreate extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    errorMessage: state.errors
-  };
-};
+const mapStateToProps = state => ({
+  errorMessage: state.errors,
+});
 
 export default connect(mapStateToProps, actions)(reduxForm({
-  form: 'create'
+  form: 'create',
 })(ArtistCreate));

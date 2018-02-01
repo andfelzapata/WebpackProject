@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Picker = () => {
-  return (
-    <div>
+const Picker = () => (
+  <div>
       Picker
-    </div>
-  );
-};
+  </div>
+);
 
 export { Picker };

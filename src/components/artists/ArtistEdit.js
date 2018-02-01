@@ -15,9 +15,13 @@ class ArtistEdit extends Component {
 
   componentWillReceiveProps({ artist }) {
     if (artist) {
-      const { name, age, yearsActive, genre } = artist;
+      const {
+        name, age, yearsActive, genre,
+      } = artist;
 
-      this.setState({ name, age, yearsActive, genre });
+      this.setState({
+        name, age, yearsActive, genre,
+      });
     }
   }
 
@@ -78,11 +82,9 @@ class ArtistEdit extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    artist: state.artists.artist,
-    errorMessage: state.errors
-  };
-};
+const mapStateToProps = state => ({
+  artist: state.artists.artist,
+  errorMessage: state.errors,
+});
 
 export default connect(mapStateToProps, actions)(ArtistEdit);
