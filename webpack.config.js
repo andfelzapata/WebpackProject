@@ -1,5 +1,7 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
+const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
+
 
 const VENDOR_LIBS = [
   'faker', 'history', 'lodash', 'prop-types',
@@ -36,5 +38,10 @@ module.exports = {
       actions: path.resolve(__dirname, 'src/actions'),
       components: path.resolve(__dirname, 'src/components')
     }
-  }
+  },
+  plugins: [
+    new CommonsChunkPlugin({
+      name: 'vendor'
+    })
+  ]
 };
