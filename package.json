@@ -1,10 +1,11 @@
 {
   "name": "upstar_music",
-  "version": "1.0.0",
+  "vUersion": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
+    "serve": "webpack-dev-server",
     "build": "yarn clean && webpack",
     "lint": "eslint src/**  --ext .js, .jsx",
     "lint:fix": "eslint src/**  --ext .js, .jsx --fix"
