@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Route,
-  HashRouter as Router,
+  BrowserRouter as Router,
 } from 'react-router-dom';
 import Header from 'components/Header';
 import ArtistMain from 'components/artists/ArtistMain';
