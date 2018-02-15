@@ -72,7 +72,7 @@ class ArtistDetail extends Component {
     return (
       <div>
         <div className="spacer">
-          <Link to="/home">Back</Link>
+          <Link to="/">Back</Link>
           <Link to={`/artists/${_id}/edit`}>Edit</Link>
           <a onClick={this.onDeleteClick.bind(this)}>Delete</a>
         </div>
