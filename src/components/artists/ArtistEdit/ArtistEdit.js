@@ -27,8 +27,10 @@ class ArtistEdit extends Component {
   }
 
   componentWillUpdate(nextProps) {
-    if (nextProps.params.id !== this.props.params.id) {
-      this.props.findArtist(nextProps.params.id);
+    const { match: { params } } = this.props
+    const { match: { params: nextParams } } = nextProps
+    if (nextParams.id !== params.id) {
+      this.props.findArtist(nextParams.id);
     }
   }
 
@@ -39,8 +41,8 @@ class ArtistEdit extends Component {
   onSubmit(event) {
     event.preventDefault();
     event.stopPropagation();
-
-    this.props.editArtist(this.props.params.id, this.state);
+    const { match: { params } } = this.props
+    this.props.editArtist(params.id, this.state);
   }
 
   render() {
