@@ -10,7 +10,8 @@ class ArtistEdit extends Component {
   }
 
   componentWillMount() {
-    this.props.findArtist(this.props.params.id);
+    const { match: { params } } = this.props
+    this.props.findArtist(params.id);
   }
 
   componentWillReceiveProps({ artist }) {
