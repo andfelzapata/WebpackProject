@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "serve": "webpack-dev-server",
-    "build": "yarn clean && webpack",
+    "build": "NODE_ENV=production yarn clean && webpack -p",
     "lint": "eslint src/**  --ext .js, .jsx",
     "lint:fix": "eslint src/**  --ext .js, .jsx --fix"
   },
