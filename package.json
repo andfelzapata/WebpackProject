@@ -9,7 +9,8 @@
     "build": "NODE_ENV=production yarn clean && webpack -p",
     "lint": "eslint src/**  --ext .js, .jsx",
     "lint:fix": "eslint src/**  --ext .js, .jsx --fix",
-    "deploy": "surge -p dist"
+    "deploy:surge": "surge -p dist",
+    "deploy:node": "yarn build && NODE_ENV=production node server.js"
   },
   "repository": "https://github.com/andfelzapata/WebpackProject",
   "author": "",
